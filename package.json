@@ -1,0 +1,27 @@
+{
+  "author": "Dennis Torres <djtorres0@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/psirenny/d-semantic-ui-dropdown/issues"
+  },
+  "description": "Derby JS semantic UI dropdown component.",
+  "keywords": [
+    "component",
+    "derby",
+    "dropdown",
+    "select",
+    "semantic",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "d-semantic-ui-dropdown",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psirenny/d-semantic-ui-dropdown.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

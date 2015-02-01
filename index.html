@@ -1,0 +1,12 @@
+<index: arrays="item/items" element="dropdown">
+  <div class="ui selection dropdown {{if open}}active visible{{/}}" on-click="open($event)">
+    <i class="dropdown icon"></i>
+    <div class="text">{{text}}</div>
+    <ol class="menu {{if open}}transition visible{{/}}">
+      {{each @items as #item, #i}}
+      <li class="item" on-click="select($event, this)">
+        {{#item.content}}
+      </li>
+      {{/}}
+    </ol>
+  </div>

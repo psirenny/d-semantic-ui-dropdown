@@ -1,8 +1,15 @@
 <index: arrays="item/items" element="dropdown">
-  <div class="ui selection dropdown {{if disabled}}disabled{{/}} {{if open}}active visible{{/}}" on-click="open($event)">
+  <div class="ui dropdown selection {{if disabled}}disabled{{/}} {{if open}}active visible{{/}}" on-click="open($event)">
     <i class="dropdown icon"></i>
+    {{if value}}
     <div class="text">{{unescaped @text || selected.text || value}}</div>
+    {{else}}
+    <div class="default text">{{placeholder}}</div>
+    {{/}}
     <ol class="menu {{if open}}transition visible{{/}}">
+      {{if placeholder}}
+      <li class="item" on-click="select($event, -1)">{{placeholder}}</li>
+      {{/}}
       {{each @items as #item, #i}}
       <li class="item {{if #item.value === value}}active{{/}}" on-click="select($event, #i, #item)">
         {{unescaped #item.content || #item.text || #item.value}}

@@ -12,7 +12,7 @@ Component.prototype.init = function (model) {
   });
 
   model.start('selected', 'items', 'index', function (items, index) {
-    return items[index];
+    return items && items[index];
   });
 
   model.setNull('defaultValue', model.get('value'));
@@ -52,10 +52,19 @@ Component.prototype.close = function (e) {
   this.emit('close');
 };
 
+Component.prototype.deselect = function () {
+  var index = this.model.get('index');
+  var item = this.model.get('items.' + index);
+  if (index < 0) return;
+  this.model.del('value');
+  this.emit('deselect', index, item);
+};
+
 Component.prototype.select = function (e, index, item) {
   e.stopPropagation();
   if (this.model.get('disabled')) return;
-  this.model.set('value', item.value);
+  this.deselect();
+  this.model.set('value', item && item.value);
   this.emit('select', index, item);
   this.close();
 };
